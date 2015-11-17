@@ -92,7 +92,7 @@ int main( int argc, char* argv[] ){
 
     for(;;){
         ::memset( _events.data(), 0, sizeof( epoll_event ) * _events.size() );
-        int n = epoll_wait( epollFD, _events.data(), _events.size(), 0 );
+        int n = epoll_wait( epollFD, _events.data(), _events.size(), 10000 );
 
         for( int i = 0; i < n; ++i ){
             epoll_event& event = _events[i];
